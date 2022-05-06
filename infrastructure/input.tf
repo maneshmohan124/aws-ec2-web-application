@@ -2,19 +2,19 @@ variable "access_key" {}
 variable "secret_key" {}
 
 variable "region" {
-    type = "string"
+    type = string
     description = "aws region where the VM will be provisioned"
     default = "us-east-2"
 }
 
 variable "ami" {
-    type = "string"
+    type = string
     description = "aws ami used to provision the VM"
-    default = "ami-0233c2d874b811deb"
+    default = "ami-064ff912f78e3e561"
 }
 
 variable "instance_ssh_public_key" {
-    type = "string"
+    type = string	
     description = "your ssh public key"
 }
 

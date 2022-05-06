@@ -15,11 +15,11 @@ provider "random" {
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
-  name = "application-vpc"
-  cidr = "10.0.0.0/16"
+  name = "testing"
+  cidr = "172.31.0.0/16"
 
   azs            = ["${var.region}a"]
-  public_subnets = ["10.0.101.0/24"]
+  public_subnets = ["172.31.0.0/20"]
 
   tags = {
     createdBy = "<%=username%>"
@@ -36,8 +36,8 @@ resource "aws_key_pair" "app_ssh" {
   key_name   = "application-ssh-${random_string.random.result}"
   public_key = var.instance_ssh_public_key
   tags = {
-    Name      = "application-ssh"
-    createdBy = "listentolearn"
+    Name      = "testing.pem"
+    createdBy = "qtreeclass"
   }
 }
 
@@ -52,7 +52,7 @@ resource "aws_instance" "app_vm" {
 
   tags = {
     Name      = "application-vm"
-    createdBy = "listentolearn"
+    createdBy = "qtreeclass"
   }
 }
 
